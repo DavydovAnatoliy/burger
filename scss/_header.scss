@@ -1,0 +1,141 @@
+.header {
+position: fixed;
+
+width: 100%;
+top: 0;
+left: 0;
+    &__body {
+        background: #5e5373;
+    }
+
+    &__items {
+        display: flex;
+        justify-content: space-between;
+        height: 80px;
+        align-items: center;
+    }
+
+    &__logo {
+    flex: 0 0 50px;
+ border-radius: 50%;
+ overflow: hidden;
+        & img{
+            max-width: 100%;
+            height: 50px;
+        }
+    }
+
+    &__burger {
+        position: relative;
+        width: 30px;
+        height: 20px;
+        display: none;
+        &::before,
+        &::after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: rgb(200, 190, 236);
+                transition: all 1s ease 0s;
+        }
+         &::before{
+             top: 0;
+         }
+         &::after {
+             bottom: 0;
+         }
+         & span{
+             position: absolute;
+             width: 100%;
+             height: 2px;
+             background: rgb(200, 190, 236);
+             top: 9px;
+           transition: all 1s ease 0s;
+         }
+    }
+
+    &__menu {
+       
+    }
+
+    &__list {
+        display: flex;
+         
+        & li{
+            margin: 0 0 0 20px;
+            
+        }
+    }
+
+    &__link {
+         color: rgb(200, 190, 236);
+         text-transform: uppercase;
+    }
+
+
+    @media (max-width:767px){
+            &__burger {
+               display: block;
+               &.active::before {
+                    top: 9px;
+                    transform: rotate(45deg);
+                }
+
+                &.active::after {
+                    bottom: 9px;
+                    transform: rotate(-45deg);
+                }
+
+                &.active span {
+                  transform: scale(0);
+                }
+            }
+
+                &__menu {
+                    overflow: auto;
+                   
+                    position: fixed;
+                    top: -100%;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: green;
+                    z-index: -1;
+                    padding: 90px 0 60px 0;
+                    transition: all 3s ease 0s;
+                   &.active{
+                       top: 0;
+                       
+                   }
+
+                }
+
+                 &__list {
+                     flex-direction: column;
+                     justify-content: space-between;
+height: 0px;
+ transition: all 7s ease 0s;
+ font-size: 0px;
+                 }
+       &__list.active {
+           height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+           font-size: 32px;
+       }
+               
+//   &__link {
+//       color: rgb(235, 13, 13);
+ 
+//       font-size: 32px;
+//   }
+                
+    }
+}
+
+.container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
